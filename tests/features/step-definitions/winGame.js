@@ -1,7 +1,6 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
 
-
 When('I wait repeatedly until {string} message appears', async function (message) {
   while (true) {
     const descriptionText = await this.page.locator('.description').textContent();
@@ -19,10 +18,6 @@ When('I wait repeatedly until {string} message appears', async function (message
     await this.page.locator('.choices li:has-text("Wait")').click();
     await this.page.waitForTimeout(10);
   }
-});
-
-When('I click the {string} button', async function (buttonText) {
-  await this.page.locator(`.choices li:has-text("${buttonText}")`).click();
 });
 
 When('I click the Buy an espresso button until I have no money left', async function () {
@@ -51,11 +46,6 @@ Then('I should have {int} {string}', async function (quantity, itemName) {
   } else {
     throw new Error(`Unknown item: ${itemName}`);
   }
-});
-
-Then('I should see the {string} button', async function (buttonText) {
-  const buttonLocator = this.page.locator(`.choices li:has-text("${buttonText}")`);
-  expect(await buttonLocator.isVisible()).to.be.true;
 });
 
 When('I wait until {string} appears', async function (message) {
