@@ -22,3 +22,9 @@ Given('that my position is {string}', async function (position) {
 Then('my position should be {string}', async function (position) {
     expect(await getWhereIAm(this)).to.equal(position);
   });
+
+// Step to click a button with the given text
+When('I click the {string} button', async function (buttonText) {
+  const button = await getMenuChoiceElement(this, buttonText);
+  await button.click();
+});

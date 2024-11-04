@@ -6,12 +6,6 @@ import {
   getAllCurrentMenuChoices,
 } from './helpers.js';
 
-// Step to click a button with the given text
-When('I click the {string} button', async function (buttonText) {
-  const button = await getMenuChoiceElement(this, buttonText);
-  await button.click();
-});
-
 // Step for when the button has already been clicked
 Given('I have clicked the {string} button', async function (buttonText) {
   const button = await getMenuChoiceElement(this, buttonText);
